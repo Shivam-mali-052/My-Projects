@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Finance Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.14/jspdf.plugin.autotable.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Personal Finance Tracker</h1>
+        
+        <div class="dashboard">
+            <div class="card">
+                <h2>Total Income</h2>
+                <p id="total-income">$0</p>
+            </div>
+            <div class="card">
+                <h2>Total Expenses</h2>
+                <p id="total-expenses">$0</p>
+            </div>
+            <div class="card">
+                <h2>Total Savings</h2>
+                <p id="total-savings">$0</p>
+            </div>
+        </div>
+        
+        <div id="challenge-section">
+            <h2>Budgeting Challenges</h2>
+            <form id="challenge-form">
+                <input type="text" id="challenge-name" placeholder="Challenge Name" required>
+                <input type="number" id="challenge-goal" placeholder="Goal Amount" required>
+                <button type="submit">Create Challenge</button>
+            </form>
+            <div id="challenges-list">
+                <!-- Ongoing and completed challenges will appear here -->
+            </div>
+        </div>
+
+        <form id="transaction-form">
+            <input type="text" id="description" placeholder="Description" required>
+            <input type="number" id="amount" placeholder="Amount" required>
+            <select id="category" required>
+                <option value="" disabled selected>Select Category</option>
+                <option value="income">Income</option>
+                <option value="expense">Expense</option>
+            </select>
+            <button type="submit">Add Transaction</button>
+        </form>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>Amount</th>
+                    <th>Category</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="transaction-list">
+                <!-- Transactions will be dynamically added here -->
+            </tbody>
+        </table>
+
+        <button id="view-pie-chart">View Pie Chart</button>
+        <button id="export-csv">Export to CSV</button>
+        <button id="export-pdf">Export to PDF</button>
+
+        <div id="pie-chart-container" style="display:none;">
+            <canvas id="pie-chart"></canvas>
+            <div id="pie-chart-legend"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
